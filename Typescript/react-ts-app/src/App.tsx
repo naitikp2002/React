@@ -10,7 +10,11 @@ interface Todo {
 }
 function App() {
   const [todoText, setTodoText] = useState<Todo[]>([]);
-
+  const deleteTodo=(id:string) => {
+    setTodoText((pre) => {
+      return pre.filter((todo) => todo.id!== id);
+    });
+  }
   const AddTodohandler = (text: string) => {
     console.log(text);
     setTodoText((pre) => {
@@ -21,7 +25,7 @@ function App() {
   return (
     <div className="App">
       <NewTodo addTodo={AddTodohandler} />
-      <TodoList todo={todoText} />
+      <TodoList todo={todoText} deleteTodo={deleteTodo}/>
     </div>
   );
 }

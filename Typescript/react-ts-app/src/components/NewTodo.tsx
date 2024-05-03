@@ -6,7 +6,7 @@ type NewTodoProps = {
 
 const NewTodo: React.FC<NewTodoProps> = (props) => {
   const [todoText, setTodoText] = useState("");
-
+    
   const todoSubmitHandler = (event: React.FormEvent) => {
     event.preventDefault();
     const trimmedTodoText = todoText.trim();
