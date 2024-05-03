@@ -1,24 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import TodoList from './components/TodoList';
+import NewTodo from './components/NewTodo';
 
 function App() {
+  const AddTodohandler=(text: string)=>{
+    console.log(text);
+  }
+  const todos=[{id:23, text:"buy toys"},{id:23, text:"pay bills"}]
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NewTodo addTodo={AddTodohandler}/>
+      <TodoList todos={todos}/>
     </div>
   );
 }
